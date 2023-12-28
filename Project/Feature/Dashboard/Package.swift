@@ -23,6 +23,7 @@ let package = Package(
         .upToNextMajor(from: "1.5.6")),
       .package(path: "../../Core/Architecture"),
       .package(path: "../../Core/Domain"),
+      .package(path: "../../Core/DesignSystem"),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -34,6 +35,7 @@ let package = Package(
               .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
               "Architecture",
               "Domain",
+              "DesignSystem",
             ]
         ),
         .testTarget(

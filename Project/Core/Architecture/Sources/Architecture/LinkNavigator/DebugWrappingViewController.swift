@@ -21,7 +21,7 @@ public final class DebugWrappingViewController<Content: View>: UIHostingControll
   }
 
   deinit {
-    print("✂️ \(matchPath) deinit...")
+    Log.info("✂️ \(matchPath) deinit...")
   }
 
   // MARK: Public
@@ -31,10 +31,11 @@ public final class DebugWrappingViewController<Content: View>: UIHostingControll
 
   public override func loadView() {
     super.loadView()
+    view.backgroundColor = UIColor(Color.themePrimaryBackground)
   }
 
   public override func viewDidLoad() {
     super.viewDidLoad()
-    print("🚗 \(matchPath)")
+    Log.info("🚗 \(matchPath)")
   }
 }

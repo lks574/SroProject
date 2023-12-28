@@ -1,6 +1,7 @@
 import Foundation
 import ComposableArchitecture
 import SwiftUI
+import DesignSystem
 
 struct DashboardMainPage {
   init(store: StoreOf<DashboardMainStore>) {
@@ -15,6 +16,7 @@ struct DashboardMainPage {
 extension DashboardMainPage: View {
   var body: some View {
     Text("DashboardMainPage")
-      .foregroundStyle(.red)
+      .foregroundStyle(Color.red)
+      .padding(24)
   }
 }
