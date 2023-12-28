@@ -24,6 +24,7 @@ let package = Package(
       .package(path: "../../Core/Architecture"),
       .package(path: "../../Core/Domain"),
       .package(path: "../../Core/DesignSystem"),
+      .package(path: "../../Core/Platform"),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -36,6 +37,7 @@ let package = Package(
               "Architecture",
               "Domain",
               "DesignSystem",
+              "Platform",
             ]
         ),
         .testTarget(

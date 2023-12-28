@@ -2,6 +2,7 @@ import Foundation
 import SwiftUI
 import LinkNavigator
 import Architecture
+import Platform
 
 @main
 struct AppMain: App {

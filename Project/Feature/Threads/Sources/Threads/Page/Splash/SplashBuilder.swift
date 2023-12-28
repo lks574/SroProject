@@ -2,20 +2,20 @@ import LinkNavigator
 import Architecture
 import Platform
 
-struct DashboardMainBuilder<RootNavigator: RootNavigatorType> {
+struct SplashBuilder<RootNavigator: RootNavigatorType> {
   static func generate() -> RouteBuilderOf<RootNavigator> {
-    let matchPath = Link.Dashboard.Application.Path.dashboardMain.rawValue
+    let matchPath = Link.Threads.Application.Path.splash.rawValue
 
     return .init(matchPath: matchPath) { navigator, _, diContainer -> RouteViewController? in
       guard let env: AppSideEffect = diContainer.resolve() else { return .none }
 
       return DebugWrappingViewController(matchPath: matchPath) {
-        DashboardMainPage(
+        SplashPage(
           store: .init(
-            initialState: DashboardMainStore.State(),
+            initialState: SplashStore.State(),
             reducer: {
-              DashboardMainStore(
-                env: DashboardMainEnvLive(
+              SplashStore(
+                env: SplashEnvLive(
                   sideEffect: env,
                   linkNavigator: navigator)
               )

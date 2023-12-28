@@ -15,8 +15,24 @@ struct DashboardMainPage {
 
 extension DashboardMainPage: View {
   var body: some View {
-    Text("DashboardMainPage")
-      .foregroundStyle(Color.red)
-      .padding(24)
+    List {
+      ForEach(DashboardMainStore.TapType.allCases) { itemType in
+        Text(itemType.rawValue)
+          .onTapGesture {
+            viewStore.send(.onTapList(itemType))
+          }
+      }
+    }
   }
+}
+
+#Preview {
+  DashboardMainPage(store: .init(
+    initialState: DashboardMainStore.State(),
+    reducer: {
+      DashboardMainStore(
+        env: DashboardMainEnvMock()
+      )
+    })
+  )
 }

@@ -1,17 +1,22 @@
 import Foundation
 import LinkNavigator
-import Dashboard
 import Domain
-import Platform
 
-struct AppSideEffect: DependencyType, DashboardEnvType {
+public struct AppSideEffect: DependencyType {
   let appStorageUseCase: AppStorageUseCaseType
 }
 
-extension AppSideEffect {
+public extension AppSideEffect {
   static func build(isDev: Bool) -> AppSideEffect {
-    return .init(
+    .init(
       appStorageUseCase: AppStorageUseCasePlatform(isDev: isDev)
+    )
+  }
+
+  static func mock() -> AppSideEffect {
+    .init(
+      appStorageUseCase: AppStorageUseCasePlatform(
+        isDev: true)
     )
   }
 }
